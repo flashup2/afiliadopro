@@ -1,0 +1,20 @@
+{
+  "keys": [
+    {
+      "key": "MASTER-DONO-2025",
+      "name": "Dono — Acesso Master",
+      "email": "seu@email.com",
+      "plan": "master",
+      "created": "2025-01-01",
+      "expires": "never"
+    },
+    {
+      "key": "EXEMPLO-CLIENTE-ABC123",
+      "name": "Cliente Exemplo",
+      "email": "cliente@email.com",
+      "plan": "pro",
+      "created": "2025-01-01",
+      "expires": "never"
+    }
+  ]
+}
