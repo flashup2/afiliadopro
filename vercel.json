@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/app", "destination": "/app.html" },
     { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/", "destination": "/index.html" }
   ],
   "headers": [
@@ -13,3 +14,5 @@
     }
   ]
 }
+A linha nova é esta:
+{ "source": "/api/(.*)", "destination": "/api/$1" },
