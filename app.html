@@ -738,7 +738,7 @@ async function genWpAI(){
   showWpPreview('⏳ Gerando mensagem...');
   const toneMap={urgente:'urgente e persuasivo',casual:'casual e amigável',formal:'formal e direto'};
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':ANTHROPIC_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
       model:'claude-sonnet-4-20250514',max_tokens:600,
       system:'Especialista em copywriting para afiliados no Brasil. Responda APENAS com o texto da mensagem, sem explicações.',
       messages:[{role:'user',content:`Mensagem WhatsApp estilo ${toneMap[tone]} para "${prod}" da ${plat}.${price?' Preço: '+price+'.':''}${deal?' Oferta: '+deal+'.':''}${link?' Link: '+link:'Coloque [LINK] como placeholder.'} Máximo 10 linhas. Use emojis.`}]
@@ -876,7 +876,7 @@ async function genText(){
   const card=document.getElementById('tx-card'); card.style.display='block';
   const out=document.getElementById('tx-out'); out.textContent='⏳ Gerando texto...';
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':ANTHROPIC_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
       model:'claude-sonnet-4-20250514',max_tokens:800,
       system:'Copywriter especialista em afiliados no Brasil. Responda APENAS com o texto pronto para usar, sem explicações.',
       messages:[{role:'user',content:`Legenda para ${ch} do produto "${prod}".${link?' Link: '+link:''} Use emojis, urgência e CTA forte. Máximo 12 linhas.`}]
@@ -933,7 +933,7 @@ async function genPlan(){
   DAYS.forEach(d=>{weekPlan[d]=[];for(let i=0;i<pp;i++)weekPlan[d].push({text:'Carregando...',done:false});});
   renderWeek();
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':ANTHROPIC_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
       model:'claude-sonnet-4-20250514',max_tokens:1500,
       system:'Especialista em marketing de afiliados no Brasil. Planos práticos e específicos. Português.',
       messages:[{role:'user',content:`Plano semanal de divulgação. Nicho: ${ni}. Plataformas: ${pl}. ${pp} post(s)/dia. Canal: ${ch}. Para cada dia da semana liste ${pp} ação(ões) com produto, formato e horário. Inicie cada dia com "DIA: [nome do dia]".`}]
